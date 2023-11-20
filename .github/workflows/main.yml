@@ -1,0 +1,34 @@
+name: Node.js CI/CD with NPM
+ 
+on:
+  push:
+    branches:
+      - master
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - uses: browser-actions/setup-chrome@v1
+    - run: chrome --version
+ 
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # You can adjust the version as needed
+ 
+    - name: Install dependencies
+      run: npm install
+      
+    - name: start
+      run: npm start
+ 
+    - name: unit test
+      run: npm test
+ 
+    - name: ATDD test
+      run: npm run build  # Adjust the script as per your project setup
