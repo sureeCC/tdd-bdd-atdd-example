@@ -33,5 +33,6 @@ jobs:
       continue-on-error: true
       
     - name: atdd test
-      run: npm run test:atdd
+      run: |
+       npm start & npm run test:atdd
       continue-on-error: true
