@@ -12,8 +12,6 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
-    - name: Build and Run Tests
-      run: npm run test
       
     - uses: browser-actions/setup-chrome@v1
     - run: chrome --version
@@ -25,6 +23,8 @@ jobs:
  
     - name: Install dependencies
       run: npm install
+    - name: Build and Run Tests
+      run: npm run test
       
     - name: unit test
       run: npm run test:unit
