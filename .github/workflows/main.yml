@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - name: Checkout Code
+      uses: actions/checkout@v4
+    - name: Build and Run Tests
+      run: npm run test
       
     - uses: browser-actions/setup-chrome@v1
     - run: chrome --version
